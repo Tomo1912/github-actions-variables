@@ -25,16 +25,16 @@ The workflow is defined in `.github/workflows/ci-demo.yml`. Here’s what it doe
 
 ### Steps
 1. **Checkout Repository**: Pulls the latest code using `actions/checkout@v4`.  
-2. **Setup Node.js**: Configures Node.js (v18) with dependency caching for faster runs.  
-3. **Install Dependencies**: Uses `npm ci` for a clean, repeatable install.  
-4. **Display Access ID**: Shows how to securely use environment variables.  
+2. **Setup Node.js**: Configures Node.js (v18) using `actions/setup-node@v3`.  
+3. **Install Dependencies**: Runs `npm install` with a fallback if no `package.json` is found.  
+4. **Display Access ID**: Shows how to securely use environment variables with `ACCESS_ID`.  
 5. **Run Tests**: Executes `npm test` (with a fallback message if no tests exist).  
 6. **Debug on Failure**: If anything fails, it prints environment details for troubleshooting.  
-- **Why**: These steps mimic a real CI process—code retrieval, environment setup, dependency management, testing, and debugging.
+- **Why**: These steps mimic a real CI process—code retrieval, environment setup, dependency management, testing, and debugging—while staying flexible for minimal setups.
 
 ## Why This Matters
- 
+
 - **Automate Processes**: Streamline development with CI.  
 - **Handle Security**: Use GitHub Secrets for sensitive data.  
 - **Write Maintainable Code**: Structure workflows with clear steps and error handling.  
-- **Think Practically**: Include debugging and fallback mechanisms.
+- **Think Practically**: Include fallbacks and debugging to handle edge cases gracefully.
